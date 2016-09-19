@@ -27,9 +27,7 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
-## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
+
 
 # Swift Package Manager
 #
