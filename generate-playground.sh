@@ -1,30 +1,30 @@
 #!/bin/bash
 
-rm ./contents.swift
+rm ./Contents.swift
 
 rm ./Closures.playground.zip
 
-cat ./source/header.swift > ./contents.swift
+cat ./source/header.swift > ./Contents.swift
 
-cat ./source/srp.swift >> ./contents.swift
-cat ./source/ocp.swift >> ./contents.swift
-cat ./source/lsp.swift >> ./contents.swift
-cat ./source/isp.swift >> ./contents.swift
-cat ./source/dip.swift >> ./contents.swift
+cat ./source/srp.swift >> ./Contents.swift
+cat ./source/ocp.swift >> ./Contents.swift
+cat ./source/lsp.swift >> ./Contents.swift
+cat ./source/isp.swift >> ./Contents.swift
+cat ./source/dip.swift >> ./Contents.swift
 
-cat ./source/footer.swift >> ./contents.swift
+cat ./source/footer.swift >> ./Contents.swift
 
 cp ./contents.swift ./Closures.playground/contents.swift
 
-{ rm contents.swift && awk '{gsub("\\*//\\*:", "", $0); print}' > contents.swift; } < contents.swift
-{ rm contents.swift && awk '{gsub("/\\*:", "```\n", $0); print}' > contents.swift; } < contents.swift
+{ rm contents.swift && awk '{gsub("\\*//\\*:", "", $0); print}' > Contents.swift; } < Contents.swift
+{ rm contents.swift && awk '{gsub("/\\*:", "```\n", $0); print}' > Contents.swift; } < Contents.swift
 { rm contents.swift && awk '{gsub("\\*/", "\n```swift", $0); print}' > contents.swift; } < contents.swift
 
-{ rm contents.swift && awk 'NR>1{print buf}{buf = $0}' > contents.swift; } < contents.swift
+{ rm contents.swift && awk 'NR>1{print buf}{buf = $0}' > Contents.swift; } < Contents.swift
 
 echo "\`\`\`swift
-$(cat ./contents.swift)" > ./README.md
+$(cat ./Contents.swift)" > ./README.md
 
 zip -r -X Closures.playground.zip ./Closures.playground
 
-rm ./contents.swift
+rm ./Contents.swift
